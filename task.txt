@@ -1,0 +1,19 @@
+From a blank setup, build a Live Telemetry Mini-Dashboard in the browser. You can use any front-end stack (vanilla JS/TS, React, Vue, or Svelte). No back end. Create your own mock real-time data generator that emits an object every ~800–1000 ms with:
+siteId (string, e.g., TWR-1023)
+ts (epoch ms)
+soc (0–100, %)
+powerKw (0–25)
+gridStatus ("OK" or "OUTAGE")
+alarms (array of { code, severity: "low"|"med"|"high", msg }; emit an outage alarm when gridStatus === "OUTAGE")
+Build one page that shows:
+A header with siteId and a colored status pill for gridStatus.
+A line chart of the last 60 seconds of either powerKw or soc, updating live.
+An Alarms panel (newest first) showing up to 10 most recent alarms.
+A warning banner when gridStatus === "OUTAGE" or soc < 25.
+A Pause/Resume control for the stream.
+Non-functional requirements:
+Keep the UI responsive and smooth as updates arrive (aim ~10 fps or less).
+Implement at least one performance/a11y practice (e.g., throttling updates, memoized row render, aria-live="assertive" for the banner, or virtualization for long lists).
+Clean, readable code.
+Time: 30 minutes. Please narrate your approach as you go.
+ 
